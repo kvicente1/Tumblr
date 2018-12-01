@@ -18,10 +18,10 @@ class PhotosViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.delegate = self
+        tableView.delegate = self
         tableView.dataSource = self
-        //tableView.rowHeight = 250
-      //  super.viewDidLoad()
+        tableView.rowHeight = 250
+        super.viewDidLoad()
         retrieveTumblrAPIData()
         
     }
@@ -35,7 +35,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource,UITableViewD
                 print(error.localizedDescription)
             } else if let data = data, let dataDictionary = try!
                 JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]{
-                    print(dataDictionary)
+                   /// print(dataDictionary) //RECENT DELETED
                     let responseDictionary =  dataDictionary["response"] as! [String: Any]
                     self.posts = responseDictionary["posts"] as! [[String: Any]]
                     self.tableView.reloadData() //Photo Table View
@@ -55,49 +55,52 @@ class PhotosViewController: UIViewController, UITableViewDataSource,UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! TableViewCell;
         
-        let post = posts[indexPath.row]
-        if let photos = post["photos"] as? [[String: Any]] {
-            let photo = photos[0]
-            let originalSize = photo["original_size"] as! [String: Any]
-            let urlString = originalSize["url"] as! String
-            let url = URL(string: urlString)
+    
+        ///let post = posts[indexPath.row]
+        ///if let photos = post["photos"] as? [[String: Any]] {
+           /// let photo = photos[0]
+           /// let originalSize = photo["original_size"] as! [String: Any]
+          ///  let urlString = originalSize["url"] as! String
+         ///   let url = URL(string: urlString)
             
-            cell.photoImageView.af_setImage(withURL: url!)
-        }
-        
-        return cell
+          /// cell.photoImageView.af_setImage(withURL: url!)
+            cell.photoImageView.af_setImage(withURL:getPhotoURL(rowNumber: indexPath.row)!)
+          return cell
+      //  }
+        //RECENT
+      // return cell
     }
     
-    //func getCaptionString(rowNumber: Int) -> String? {
-     //   var captionWithHTML: String?
-     //   let post = posts[rowNumber]
-       // if let caption = post["caption"] as! String? {
-           // captionWithHTML = caption
-       // }
-      //  return captionWithHTML
-   // }
+    func getCaptionString(rowNumber: Int) -> String? {
+       var captionWithHTML: String?
+       let post = posts[rowNumber]
+        if let caption = post["caption"] as! String? {
+            captionWithHTML = caption
+        }
+        return captionWithHTML
+    }
     
-    //func getPhotoURL(rowNumber: Int) -> URL? {
-     //   var url: URL?
-     //   let post = posts[rowNumber]
-       // if let photos = post["photos"] as? [[String: Any]]{
-         //   let photo = photos[0]
-          //  let originalSize = photo["original_size"] as! [String: Any]
-          //  let urlString = originalSize["url"] as! String
-           // url = URL(string: urlString)
-      //  }
-      //  return url
- //   }
+    func getPhotoURL(rowNumber: Int) -> URL? {
+      var url: URL?
+       let post = posts[rowNumber]
+        if let photos = post["photos"] as? [[String: Any]]{
+        let photo = photos[0]
+        let originalSize = photo["original_size"] as! [String: Any]
+        let urlString = originalSize["url"] as! String
+        url = URL(string: urlString)
+        }
+        return url
+    }
     
-   // override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-       // let detailView = segue.destination as! DetailsViewController
-    //    let cell = sender as! UITableViewCell
-     //   let indexPath = tableView.indexPath(for: cell)!
-   //     let url = getPhotoURL(rowNumber: indexPath.row)
-    //    detailView.photoURL = url
-    //    detailView.detailText = getCaptionString(rowNumber: indexPath.row)
-   //     tableView.deselectRow(at: indexPath, animated: true)
- //  }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+    let detailView = segue.destination as! PhotoDetailsViewController
+       let cell = sender as! UITableViewCell
+       let indexPath = tableView.indexPath(for: cell)!
+       let url = getPhotoURL(rowNumber: indexPath.row)
+        detailView.photoURL = url
+       detailView.detailText = getCaptionString(rowNumber: indexPath.row)
+       tableView.deselectRow(at: indexPath, animated: true)
+   }
 }
     
     

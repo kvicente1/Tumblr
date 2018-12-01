@@ -17,6 +17,7 @@
 		E027BE3F21728A4E00AD934C /* TumblrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027BE3E21728A4E00AD934C /* TumblrTests.swift */; };
 		E027BE4A21728A4E00AD934C /* TumblrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027BE4921728A4E00AD934C /* TumblrUITests.swift */; };
 		E027BE5A2172A41900AD934C /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027BE592172A41900AD934C /* PhotosViewController.swift */; };
+		E09E565321B0FF36009B28FE /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E565221B0FF36009B28FE /* PhotoDetailsViewController.swift */; };
 		E0C7565C218567DE001A1814 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7565B218567DE001A1814 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		E027BE4921728A4E00AD934C /* TumblrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblrUITests.swift; sourceTree = "<group>"; };
 		E027BE4B21728A4E00AD934C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E027BE592172A41900AD934C /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		E09E565221B0FF36009B28FE /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
 		E0C7565B218567DE001A1814 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 				E027BE2921728A4D00AD934C /* AppDelegate.swift */,
 				E027BE592172A41900AD934C /* PhotosViewController.swift */,
 				E027BE2D21728A4D00AD934C /* Main.storyboard */,
+				E09E565221B0FF36009B28FE /* PhotoDetailsViewController.swift */,
 				E0C7565B218567DE001A1814 /* TableViewCell.swift */,
 				E027BE3021728A4E00AD934C /* Assets.xcassets */,
 				E027BE3221728A4E00AD934C /* LaunchScreen.storyboard */,
@@ -383,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E09E565321B0FF36009B28FE /* PhotoDetailsViewController.swift in Sources */,
 				E0C7565C218567DE001A1814 /* TableViewCell.swift in Sources */,
 				E027BE2A21728A4D00AD934C /* AppDelegate.swift in Sources */,
 				E027BE5A2172A41900AD934C /* PhotosViewController.swift in Sources */,
