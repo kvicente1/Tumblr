@@ -71,7 +71,7 @@ The following **stretch** user stories are implemented:
 
 - [ ] Add Avatar and Publish Dates (+2pt)
 - [ ] Zoomable Photo View (+2pt)
-- [ ] Infinite Scrolling (+2pt)
+- [x] Infinite Scrolling (+2pt)
 
 The following **additional** user stories are implemented:
 
@@ -86,7 +86,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/QfHbo7B.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
